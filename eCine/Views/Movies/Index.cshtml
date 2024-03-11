@@ -1,0 +1,98 @@
+﻿@model IEnumerable<NewMovieModel>
+@{
+    ViewData["Title"] = "Movies";
+}
+<head>
+    <link rel="stylesheet" href="~/css/button.css" asp-append-version="true" />
+    @* <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />  *@
+</head>
+
+<div class="container-xxl ">
+    <div class="d-flex flex-row-reverse mb-4 mt-2">
+        <a asp-controller="Movies" asp-action="Create" class="btn btn-outline-success btn-rounded" data-mdb-ripple-init data-mdb-ripple-color="dark"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg> Add Movie</a>
+    </div>
+  <ul class="unorder-list gap-4">
+        @foreach (var item in Model)
+        {
+            
+                <li class="movie-card col-md-4 col-lg-3 col-12 ">
+                    <a asp-action="Info" asp-route-id="@item.Id">
+                        <figure class="movie-image">
+                            <img src=@item.Image aspect class="movie-header imageHeader" />
+                            <div class="header-icon-container">
+                                <a href="#">
+                                    <i class="material-icons header-icon"></i>
+                                </a>
+                            </div>
+                        </figure>
+                    </a>
+                    <div class="movie-content">
+                        <div class="movie-content-header">
+                            <a asp-action="Info" asp-route-id="@item.Id">
+                                <h3 class="movie-title text-dark">@item.Name</h3>
+                                <p class="description text-dark">@item.Decription</p>
+                            </a>
+                            <div class="area-buttons btn-containers d-flex flex-column gap-2 align-items-center justify-content-center">
+                                <button id="btn-buy" class="btn btn-buy up">
+                                    <i class="btn-buy__icon btn-buy__icon--cart fa-solid fa-cart-shopping"></i>
+                                    <i class="btn-buy__icon btn-buy__icon--box fa-solid fa-ticket-simple"></i>
+                                </button>
+                                <button class="btn btn-warning up">
+                                    <i class="btn__icon fa-regular fa-pen-to-square"></i>
+                                </button>
+
+                            </div>
+
+                        </div>
+                        <span id="more-info-toggle" class="border-2 mas-info mb-3">
+                            <span class=" pointer-event ">Ocultar  </span>
+                            <i class="fas fa-caret-up mas-info-icono"></i>
+                        </span>
+                        <article class="toggle-info mt-2">
+                            <div class="movie-info ">
+                                <div class="info-section1 start">
+                                    <label>Start Date: </label><span>@item.StartDate</span>
+                                </div><!--date,time-->
+                                <div class="info-section1 end">
+                                    <label>End Date: </label><span>@item.EndDate</span>
+                                </div><!--date,time-->
+
+                            </div>
+                            <div class="tags d-flex justify-content-around gap-2 mt-1">
+                                <div class="info-section">
+                                    <label>Cinema</label>
+                                    <span>@item.CinemaId</span>
+                                </div><!--screen-->
+
+                                <div class="info-section">
+                                    <label>Status</label>
+                                        @if (DateTime.Now >= item.StartDate && DateTime.Now <= item.EndDate)
+                                        {
+                                        <span class="badge badge-success">Available</span>
+                                        }
+                                        else if (DateTime.Now > item.EndDate)
+                                        {
+                                        <span class="badge badge-danger">Expired</span>
+                                        }
+                                        else
+                                        {
+                                        <span class="badge badge-info">Soon</span>
+                                        }
+                                </div><!--seat-->
+                                <div class="info-section">
+                                    <label>Category</label>
+                                    <span class="badge badge-primary">@item.MovieCategory</span>
+                                </div><!--seat-->
+                            </div>
+                        </article>
+                    </div><!--movie-content-->
+
+               
+                </li>
+            
+            <!--movie-card-->
+        }
+
+    </ul>
+</div>
+

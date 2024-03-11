@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eCine - @ViewData["Title"]</title>
+    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
+     <link rel="stylesheet" href="~/mdb5-free-standard/css/mdb.min.css" />
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/eCine.styles.css" asp-append-version="true" />
+
+   @*  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> *@@*BoostrapIcons*@
+    <!-- Font Awesome -->
+    @* <link rel="stylesheet" href=" https: //cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" /> *@
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <!-- ICONS CDN FONTAWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- MDBoostrap -->
+ </head>
+
+
+<body class="min-vh-100 d-flex flex-column">
+    <header>
+        <nav id="navbar" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  border-bottom box-shadow mb-3 p-2 justify-content-center ">
+            
+                <div id="search-desplazable" class="search-desplazable p-3"></div>
+                <div id="menu-desplazable" class="menu-desplazable p-3"></div>
+               
+            <div id="nav-container" class="container-md nav-container  px-2">
+                <a id="navbar-logo" class="navbar-brand text-dark" asp-area="" asp-controller="Movies" asp-action="Index">eCine</a>
+
+                @* <div class="d-flex align-items-center gap-1"> *@
+                    @* Menu hambuerguesa 🍔  *@
+                    <div class="nav-item-link nav-response d-sm-none d-block order-1">
+                            <button id="contenedor-svg" class="nav-icon nav-item-link nav-response" asp-area="" asp-controller="Home" asp-action=""></button>
+
+                    </div>
+
+
+
+
+
+
+                <div id="container-nav" class="container-nav ">
+                    <ul id="navbar-nav" class="navbar-nav flex-grow-1 d-flex align-items-center gap-3 ">
+                        <li class="nav-item nav-item-link d-sm-flex flex-row d-sm-block d-none dropdown-list">
+
+                            <div id="dropdown-container" class="dropdown w-100 nav-link">
+                               
+                                <button class="nav-item nav-item-link nav-link text-dark dropdown-toggle border-0 bg-white d-sm-flex align-items-sm-center  pe-2"
+                                        type="button"
+                                        id="dropdownMenuButton"
+                                        data-mdb-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /></svg>
+                                        Managment
+                                        </div>
+                                    
+                                </button>
+                                <ul class="dropdown-menu eslink w-100" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item nav-item nav-item-link text-dark" asp-controller="Cinemas" asp-action="Index">Cinemas</a></li>
+                                    <li><a class="dropdown-item nav-item nav-item-link text-dark" asp-controller="Producers" asp-action="Index">Producers</a></li>
+                                    <li><a class="dropdown-item  nav-item nav-item-link text-dark" asp-controller="Actors" asp-action="Index">Actors</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item nav-item-link d-sm-block d-none">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Movies" asp-action="Index"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-movie" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /><path d="M8 4l0 16" /><path d="M16 4l0 16" /><path d="M4 8l4 0" /><path d="M4 16l4 0" /><path d="M4 12l16 0" /><path d="M16 8l4 0" /><path d="M16 16l4 0" /></svg> Movies</a><i class="bi bi-chevron-right d-sm-none d-block"></i>
+                        </li>
+                       
+
+
+                    </ul>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               
+                    <div id="container-nav" class="container-nav">
+                        <ul id="navbar-nav" class="navbar-nav flex-grow-1 d-flex align-items-center gap-1 ">
+                        @* <li class="nav-item nav-item-link d-sm-flex d-sm-block d-none dropdown-list">
+
+                            <div id="dropdown-container" class="dropdown w-100 nav-link">
+                                <button class="nav-item nav-item-link nav-link text-dark dropdown-toggle border-0 bg-white"
+                                        type="button"
+                                        id="dropdownMenuButton"
+                                        data-mdb-toggle="dropdown"
+                                        aria-expanded="false">
+                                    Dropdown button
+                                </button>
+                                <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item nav-item nav-item-link text-dark" href="#">Action</a></li>
+                                    <li><a class="dropdown-item nav-item nav-item-link text-dark" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item  nav-item nav-item-link text-dark" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                                <li class="nav-item nav-item-link d-sm-block d-none">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Movies" asp-action="Index"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-movie" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /><path d="M8 4l0 16" /><path d="M16 4l0 16" /><path d="M4 8l4 0" /><path d="M4 16l4 0" /><path d="M4 12l16 0" /><path d="M16 8l4 0" /><path d="M16 16l4 0" /></svg> Movies</a><i class="bi bi-chevron-right d-sm-none d-block"></i>
+                        </li>*@
+                                <li id="back-btn" class="back-btn d-sm-none d-block">
+                                    <button  class="nav-icon  nav-response" onclick="toggleSearchInput()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                                    </button>
+                                </li> 
+                        <li id="search-submit" class="icon-item search-button ">
+
+                            <form id="search-input-container" class="input-container h-100 w-100" asp-controller="Movies" asp-action="Filter">
+                                        <input id="search-field" type="text" name="" placeholder="Search for..." class="search-field ">
+                                        <button type="submit" id="search-button" class="nav-icon search-absolute nav-response" >
+                                
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                        </button>
+
+                                        <button type="reset" id="clean-input" class="nav-icon x-absolute nav-response">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                        </button>
+                                    </form>
+
+                        <li class=" icon-item nav-response">
+                            <a class="nav-icon nav-item-link nav-response" asp-area="" asp-controller="Home" asp-action="Index">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-bag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" /><path d="M9 11v-5a3 3 0 0 1 6 0v5" /></svg>
+
+                            </a>
+                        </li>
+                                </li>
+
+                                @* 👤user icon *@
+
+                        <li class=" icon-item nav-response dropdown">
+                            <button class="nav-icon nav-item-link nav-response"
+                                    type="button" id="dropdownMenuButton2"
+                                    data-mdb-toggle="dropdown"
+                                    aria-expanded="false" asp-area="" asp-controller="Home" asp-action="Index">
+
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+
+                            </button>
+                            @* <ul class="dropdown-menu dropdown-menu-end icon" aria-labelledby="dropdownMenuButton2">
+                                <li><a class="dropdown-item nav-item nav-item-link text-black" href="#"> <i class="fas fa-user-alt pe-2"></i>My Profile</a></li>
+                                <li><a class="dropdown-item nav-item nav-item-link  text-black" href="#"> <i class="fas fa-cog pe-2"></i>Settings</a></li>
+                                <li><a class="dropdown-item nav-item nav-item-link text-black" href="#"> <i class="fas fa-door-open pe-2"></i>Logout</a></li>
+                            </ul> *@
+                            <ul class="dropdown-menu icon" >
+                                <li><a class="dropdown-item nav-item nav-item-link text-dark" href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="24" class="pe-2" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> My Profile</a></li>
+                                
+                                <li><a class="dropdown-item nav-item nav-item-link text-dark" href="#"><svg xmlns="http://www.w3.org/2000/svg" class="pe-2 icon icon-tabler icon-tabler-settings" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /></svg>  Settings</a></li>
+                                <li><a class="dropdown-item  nav-item nav-item-link text-dark logout" href="#"><svg xmlns="http://www.w3.org/2000/svg" class="pe-2 icon icon-tabler icon-tabler-logout" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" /><path d="M9 12h12l-3 -3" /><path d="M18 15l3 -3" /></svg> Logout</a></li>
+                            </ul>
+                        </li>
+                        
+                               
+                        </ul>
+                    </div>
+
+                @* </div>  *@
+
+                <div id="cancel-btn" class="cancel-btn d-sm-block d-none " onclick="toggleSearchInput()">
+                    <button class="btn btn-outline-dark ">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div id="blur-area" class="">
+    </div>
+    <div class="container-fluid  flex-grow-1 d-flex  justify-content-center ">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @* <footer class="position-relative border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - eCine - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer> *@
+
+    <footer class="mt-5 text-center " style="background-color: rgba(0,0,0,.9);">
+        <!-- Grid container -->
+        <div class="p-3 pb-0">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+                <!-- Facebook -->
+                <a data-mdb-ripple-init
+                   class="btn text-white btn-floating m-1"
+                   style="background-color: #3b5998;"
+                   href="#!"
+                   role="button">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+
+                <!-- Twitter -->
+                <a data-mdb-ripple-init
+                   class="btn text-white btn-floating m-1"
+                   style="background-color: #55acee;"
+                   href="#!"
+                   role="button">
+                    <i class="fab fa-twitter"></i>
+                </a>
+
+                <!-- Google -->
+                <a data-mdb-ripple-init
+                   class="btn text-white btn-floating m-1"
+                   style="background-color: #dd4b39;"
+                   href="#!"
+                   role="button">
+                    <i class="fab fa-google"></i>
+                </a>
+
+                <!-- Instagram -->
+                <a data-mdb-ripple-init
+                   class="btn text-white btn-floating m-1"
+                   style="background-color: #ac2bac;"
+                   href="#!"
+                   role="button">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <!-- Linkedin -->
+                <a data-mdb-ripple-init
+                   class="btn text-white btn-floating m-1"
+                   style="background-color: #0082ca;"
+                   href="#!"
+                   role="button">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <!-- Github -->
+                <a data-mdb-ripple-init
+                   class="btn text-white btn-floating m-1"
+                   style="background-color: #000;"
+                   href="#!"
+                   role="button">
+                    <i class="fab fa-github"></i>
+                </a>
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+        <!-- Copyright -->
+        <div class="text-center text-light-50 p-3" style="background-color: rgba(0,0,0,1);">
+            © 2024 Copyright
+            <a class="text-body text-light" href="#">Santiago Anzola Alvarez</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- MDB -->
+    <script type="text/javascript" src="~/mdb5-free-standard/js/mdb.min.js"></script>
+    <script type="text/javascript">
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

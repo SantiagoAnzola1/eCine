@@ -1,0 +1,95 @@
+﻿@model Cinema
+
+@{
+    ViewData["Title"] = "Add new Cinema";
+}
+<div class="d-flex flex-column justify-content-center align-items-center p-2">
+    <h1 class="mb-3 text-dark">Create Cinema</h1>
+    <form asp-action="Create" style="width: 22rem;">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+
+        <div class=" mb-4 d-flex flex-row justify-content-center align-items-center text-center">
+            <img id="CinemaLogoPreview"
+                 style="width: 150px; height: 150px; aspect-ratio:1/1;object-fit: cover; background:rgba(0,0,0,0.2);"
+                 class="rounded-circle text-center" />
+        </div>
+        <div class="mb-2">
+            <div data-mdb-input-init class="form-outline mt-1">
+                <input asp-for="Logo" type="text" class="form-control" />
+                <label asp-for="Logo" class="form-label" for="form5Example1">Logo</label>
+            </div>
+            <span id="validationLogo" asp-validation-for="Logo" class="text-danger error-message p-1"></span>
+
+        </div>
+
+        <div class="mb-2">
+            <div data-mdb-input-init class="form-outline mt-1">
+                <input asp-for="Name" type="text" class="form-control" />
+                <label asp-for="Name" class="form-label" for="form5Example2">Name</label>
+            </div>
+            <span asp-validation-for="Name" class="text-danger error-message p-1"></span>
+        </div>
+
+        <div class="mb-2">
+            <div data-mdb-input-init class="form-outline">
+                <input asp-for="Description" type="text" class="form-control" />
+                <label asp-for="Description" class="form-label" for="form5Example2">Description</label>
+            </div>
+            <span asp-validation-for="Description" class="text-danger error-message p-1"></span>
+        </div>
+
+
+        <div class="d-flex flex-row justify-content-between align-items-center">
+
+
+            <a asp-action="Index" class="icon-item nav-icon nav-response" data-mdb-toggle="tooltip" data-mdb-placement="bottom" title="Volver" data-mdb-ripple-init data-mdb-ripple-color="dark"><svg xmlns="http://www.w3.org/2000/svg" class=" icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke=#000 fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l14 0" /><path d="M5 12l6 6" /><path d="M5 12l6 -6" /></svg></a>
+
+
+            <button type="submit" value="Create" class="btn btn-dark">Create</button>
+
+        </div>
+    </form>
+
+</div>
+
+@section Scripts{
+    <script>
+        const output = document.getElementById('CinemaLogoPreview')
+        const photosvg = '@Url.Content("~/images/photo.svg")'
+        output.src = photosvg;
+        const inputPicture = document.getElementById('Logo').value
+        const validation = document.getElementById('validationLogo');
+
+        const errorsvg = '@Url.Content("~/images/error404.svg")'
+        output.onerror = function () {
+            this.setAttribute('src', errorsvg)
+            validation.textContent += "Invalid URL - Image Not Found"
+        }
+        
+        $(document).ready(function () {
+            if (inputPicture != "" && (!inputPicture.includes(photosvg))) {
+                output.src = output.src = $("#Logo").val()
+                validation.textContent = ""
+            } else {
+                output.src = photosvg
+            }
+            
+
+        })
+        $('#Logo').on("change", function () {
+
+            if ($(this).val() != "" && (!$(this).val().includes(photosvg))) {
+                validation.textContent = ""
+                output.src = $(this).val();
+            } else {
+                output.src = photosvg
+            }
+
+        })
+
+
+
+    </script>
+}

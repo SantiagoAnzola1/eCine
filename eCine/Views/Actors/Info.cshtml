@@ -1,0 +1,65 @@
+﻿@model Actor
+
+@{
+    ViewData["Title"] = "Actor Information";
+}
+<div class="d-flex flex-column justify-content-center align-items-center p-2">
+    <h1 class="mb-3 text-dark">@Model.FullName</h1>
+    <div style="width: 22rem;">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+
+        <div class=" mb-4 d-flex flex-row justify-content-center align-items-center text-center">
+            <img id="ProfilePicturePreview"
+                 style="width: 150px; height: 150px; aspect-ratio:1/1;object-fit: cover; background:rgba(0,0,0,0.2);"
+                 class="rounded-circle text-center" />
+        </div>
+        <div class="mb-2">
+            <div data-mdb-input-init class="form-outline mt-1">
+                <input asp-for="ProfilePicture" type="text" class="form-control" readonly/>
+                <label asp-for="ProfilePicture" class="form-label" for="form5Example1">Profile picture</label>
+            </div>
+            <span asp-validation-for="ProfilePicture" class="text-danger error-message p-1"></span>
+
+        </div>
+
+        <div class="mb-2">
+            <div data-mdb-input-init class="form-outline mt-1">
+                <input asp-for="FullName" type="text" class="form-control" readonly />
+                <label asp-for="FullName" class="form-label" for="form5Example2">Full name</label>
+            </div>
+            <span asp-validation-for="FullName" class="text-danger error-message p-1"></span>
+        </div>
+
+        <div class="mb-2">
+            <div data-mdb-input-init class="form-outline">
+                <input asp-for="Bio" type="text" class="form-control" readonly />
+                <label asp-for="Bio" class="form-label" for="form5Example2">Biography</label>
+            </div>
+            <span asp-validation-for="Bio" class="text-danger error-message p-1"></span>
+        </div>
+
+
+        <div class="d-flex flex-row justify-content-between align-items-center">
+
+
+            <a asp-action="Index" class="icon-item nav-icon nav-response" data-mdb-toggle="tooltip" data-mdb-placement="bottom" title="Volver" data-mdb-ripple-init data-mdb-ripple-color="dark"><svg xmlns="http://www.w3.org/2000/svg" class=" icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke=#000 fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l14 0" /><path d="M5 12l6 6" /><path d="M5 12l6 -6" /></svg></a>
+
+
+            <a class="btn btn-warning" asp-action="Edit"asp-route-id="@Model.Id">Edit</a>
+
+        </div>
+    </div>
+
+</div>
+
+@section Scripts{
+    <script>
+        const output = document.getElementById('ProfilePicturePreview')
+
+        $(document).ready(function () {
+            output.src = output.src = $("#ProfilePicture").val()
+        })
+    </script>
+}

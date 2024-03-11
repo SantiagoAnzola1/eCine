@@ -1,0 +1,309 @@
+﻿@model NewMovieM
+
+@{
+    ViewData["Title"] = "Create a new movie";
+}
+<head>
+    @* <link rel="stylesheet" href="~/css/button.css" asp-append-version="true" /> *@
+    <link rel="stylesheet" href="~/css/select/select2.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/select/select2-bootstrap-5-theme.min.css" asp-append-version="true" /> 
+    @* <link rel="stylesheet" href="~/css/select/select2-bootstrap-5-theme.rtl.min.css" asp-append-version="true" /> *@
+</head>
+<div class="d-flex flex-column justify-content-center align-items-center p-2">
+    <h1 class="mb-3 text-dark">Create Movie</h1>
+
+    @* style="width: 22rem;" *@
+    <form asp-action="Create"  class="row">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+
+        <div class=" mb-4 d-flex flex-row justify-content-center align-items-center text-center">
+            <img id="ProfilePicturePreview"
+                 style="width: 150px; height: 225px; aspect-ratio:2/3; background:rgba(0,0,0,0.2);"
+                 class="rounded text-center" />
+        </div>
+        <div class="col-6">
+            <div class="mb-2 form-select-container" id="container-form-base-width">
+                <div data-mdb-input-init class="form-outline mt-1">
+                    <input asp-for="Name" type="text" class="form-control" />
+                    <label asp-for="Name" class="form-label" for="form5Example1">Name</label>
+                </div>
+                <span  asp-validation-for="Name" class="text-danger error-message p-1"></span>
+
+            </div>
+
+            <div class="mb-2 form-select-container">
+                <div data-mdb-input-init class="form-outline mt-1">
+                    <input asp-for="StartDate" type="date" class="form-control" />
+                    <label asp-for="StartDate" class="form-label" for="form5Example2">Start Date</label>
+                </div>
+                <span asp-validation-for="StartDate" class="text-danger error-message p-1"></span>
+            </div>
+
+            <div class="mb-2 form-select-container">
+                <div data-mdb-input-init class="form-outline">
+                    <input asp-for="EndDate" type="date" class="form-control" />
+                    <label asp-for="EndDate" class="form-label" for="form5Example2">End Date</label>
+                </div>
+                <span asp-validation-for="EndDate" class="text-danger error-message p-1"></span>
+            </div>
+            
+            <div class="mb-2 form-select-container ">
+                <div data-mdb-input-init class="form-outline">
+                    <input asp-for="Price"  class="form-control" />
+                    <label asp-for="Price" class="form-label" for="form5Example2">Price</label>
+                </div>
+                <span asp-validation-for="Price" class="text-danger error-message p-1"></span>
+            </div>
+            <div class="mb-2 form-select-container ">
+                <div data-mdb-input-init class="form-outline">
+                    <input asp-for="Image"  class="form-control" />
+                    <label asp-for="Image" class="form-label" for="form5Example2">Image</label>
+                </div>
+                <span id="validationPicture" asp-validation-for="Image" class="text-danger error-message p-1"></span>
+            </div>
+        </div>
+        <div class="col-6">
+
+
+            <div class="mt-1 mb-2 ">
+                <label class="visually-hidden " for="inlineFormSelectPref">Preference</label>
+                <select data-mdb-select-init class="form-control form-select  form-label">
+                    <option value="">Please choose an optionn</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                    <option value="5">Five</option>
+                    <option value="6">Six</option>
+                    <option value="7">Seven</option>
+                    <option value="8">Eight</option>
+                </select>
+                <span asp-validation-for="StartDate" class="text-danger error-message p-1"></span>
+            </div>
+            
+           @*  <div class="mb-2">
+                <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
+                <select data-mdb-select-init class="form-select form-control">
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                    <option value="5">Five</option>
+                    <option value="6">Six</option>
+                    <option value="7">Seven</option>
+                    <option value="8">Eight</option>
+                </select>
+            </div>
+            <div class="mb-2">
+                <label class="visually-hidden" for="multiSelectExample">Preference</label>
+                <select class="form-select" id="multiSelectExample" multiple>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                    <option value="5">Five</option>
+                    <option value="6">Six</option>
+                    <option value="7">Seven</option>
+                    <option value="8">Eight</option>
+                </select>
+            </div>
+
+
+            <div class="col-12">
+                <label class="visually-hidden" for="multiSelectExample">Preference</label>
+                <select class="form-select" id="multiSelectExample" multiple>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                    <option value="5">Five</option>
+                    <option value="6">Six</option>
+                    <option value="7">Seven</option>
+                    <option value="8">Eight</option>
+                </select>
+            </div>  *@
+            
+            
+            @* <div class="mb-2 form-select-container ">
+                <label class="visually-hidden" for="multiSelectExample">Preference</label>
+                <select class="form-select form-control" id="multiple-select-custom-field" data-placeholder="Choose anything" multiple>
+                    <option>Christmas Island</option>
+                    <option>South Sudan</option>
+                    <option>Jamaica</option>
+                    <option>Kenya</option>
+                    <option>French Guiana</option>
+                    <option>Mayotta</option>
+                    <option>Liechtenstein</option>
+                    <option>Denmark</option>
+                    <option>Eritrea</option>
+                    <option>Gibraltar</option>
+                    <option>Saint Helena, Ascension and Tristan da Cunha</option>
+                    <option>Haiti</option>
+                    <option>Namibia</option>
+                    <option>South Georgia and the South Sandwich Islands</option>
+                    <option>Vietnam</option>
+                    <option>Yemen</option>
+                    <option>Philippines</option>
+                    <option>Benin</option>
+                    <option>Czech Republic</option>
+                    <option>Russia</option>
+                </select>
+                <span asp-validation-for="StartDate" class="text-danger error-message p-1"></span>
+
+            </div> *@
+
+            <div class=" mb-2" >
+                <select class="form-select" id="single-select-field" data-placeholder="Choose one thing">
+                    <option></option>
+                    <option>Reactive</option>
+                    <option>Solution</option>
+                    <option>Conglomeration</option>
+                    <option>Algoritm</option>
+                    <option>Holistic</option>
+                </select>
+                <span asp-validation-for="StartDate" class="text-danger error-message p-1"></span>
+
+            </div>
+
+
+            <div class=" mb-2" id="multiselect-container">
+            <select class="form-select form-select-container w-100" id="multiple-select-clear-field" data-placeholder="Choose anything" multiple>
+               
+                <option>Christmas Island</option>
+                <option>South Sudan</option>
+                <option>Jamaica</option>
+                <option>Kenya</option>
+                <option>French Guiana</option>
+                <option>Mayotta</option>
+                <option>Liechtenstein</option>
+                <option>Denmark</option>
+                <option>Eritrea</option>
+                <option>Gibraltar</option>
+                <option>Saint Helena, Ascension and Tristan da Cunha</option>
+                <option>Haiti</option>
+                <option>Namibia</option>
+                <option>South Georgia and the South Sandwich Islands</option>
+                <option>Vietnam</option>
+                <option>Yemen</option>
+                <option>Philippines</option>
+                <option>Benin</option>
+                <option>Czech Republic</option>
+                <option>Russia</option>
+            </select>
+            <span asp-validation-for="StartDate" class="text-danger error-message p-1"></span>
+            </div>
+
+
+            @*
+            <div class="form-outline">
+                <select class="form-select" id="multiSelectExample" multiple aria-label="Example multi-select">
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                    <option value="5">Five</option>
+                    <option value="6">Six</option>
+                    <option value="7">Seven</option>
+                    <option value="8">Eight</option>
+                </select>
+                <label class="form-label" for="multiSelectExample">Example Multi-Select</label>
+            </div> *@
+
+
+           
+
+        </div>
+
+        <div class="col-12">
+           
+           <div data-mdb-input-init class="form-outline mb-4">
+                <textarea class="form-control" id="form6Example7" rows="4"></textarea>
+                <label class="form-label" for="form6Example7">Additional information</label>
+            </div>
+
+
+
+        </div>
+
+
+        <div class="d-flex flex-row justify-content-between align-items-center">
+
+
+            <a asp-action="Index" class="icon-item nav-icon nav-response" data-mdb-toggle="tooltip" data-mdb-placement="bottom" title="Volver" data-mdb-ripple-init data-mdb-ripple-color="dark"><svg xmlns="http://www.w3.org/2000/svg" class=" icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke=#000 fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l14 0" /><path d="M5 12l6 6" /><path d="M5 12l6 -6" /></svg></a>
+
+
+            <button type="submit" value="Create" class="btn btn-dark">Create</button>
+
+        </div>
+    </form>
+
+</div>
+
+
+@section Scripts{
+    <script type = "text/javascript" src = "~/js/select/select2.full.min.js" ></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+                formWidth = document.getElementById('container-form-base-width').offsetWidth + 'px';
+                multiselectContainer.style.width = formWidth;            
+        })
+        
+        const output = document.getElementById('ProfilePicturePreview')
+        const photosvg = '@Url.Content("~/images/photo.svg")'
+        output.src = photosvg;
+        const inputPicture = document.getElementById('Image').value
+
+        const errorsvg = '@Url.Content("~/images/error404.svg")'
+        output.onerror = function () {
+            this.setAttribute('src', errorsvg)
+            document.getElementById('validationPicture').textContent = "Invalid URL, Image Not Found"
+        }
+        $(document).ready(function () {
+            if (inputPicture != "" && (!inputPicture.includes(photosvg))) {
+
+                output.src = output.src = $("#Image").val()
+            } else {
+                output.src = photosvg
+            }
+
+        })
+        $('#Image').on("change", function () {
+
+            if ($(this).val() != "" && (!$(this).val().includes(photosvg))) {
+                output.src = $(this).val();
+            } else {
+                output.src = photosvg
+            }
+        })
+        // $('#multiple-select-custom-field').select2({
+        //     theme: "bootstrap-5",
+        //     width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+        //     placeholder: $(this).data('placeholder'),
+        //     closeOnSelect: false,
+        //     tags: true
+        // });
+        
+        $( '#multiple-select-clear-field' ).select2( {
+            theme: "bootstrap-5",
+                    width: 'style',
+            // width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+            placeholder: $( this ).data( 'placeholder' ),
+            closeOnSelect: false,
+            allowClear: true,
+        } );
+        $('#single-select-field').select2({
+            theme: "bootstrap-5",
+            width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+            placeholder: $(this).data('placeholder'),
+        });
+
+        
+
+       
+
+    </script>
+            
+}
