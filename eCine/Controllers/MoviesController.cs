@@ -22,6 +22,20 @@ namespace eCine.Controllers
             return View(allMovies);
         }
 
+        public async Task<IActionResult> Filter(string searchString)
+        {
+            var allMovies = await _service.GetAllAsync(n => n.Cinema);
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                searchString = searchString.ToLower();
+                //var filterResult =allMovies.Where(n=>n.Name.Contains(searchString) || n.Decription.Contains(searchString)).ToList();
+
+                var filterResult = allMovies.Where(n => n.Name.ToLower().Contains(searchString) || n.Decription.ToLower().Contains(searchString)).ToList();
+                return View("Index", filterResult);
+            }
+            return View("Index", allMovies);
+        }
+
         public async Task<IActionResult> Info(int id )
         {
             var movie = await _service.GetMovieByIdAsync(id);
