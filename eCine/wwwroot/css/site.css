@@ -738,6 +738,8 @@ td a {
     font-size: 0.9rem !important;
 }
 
+
+
 .select2-search__field::placeholder {
     opacity: 1 !important;
     color: black !important;
@@ -749,7 +751,7 @@ td a {
 
 /*Quitar el z index del form*/
 select + .select2-container--bootstrap-5 {
-    z-index: 0;
+    z-index: 0 !important;
 }
 
 /*Centrar lable/placeholder/seleccion de single select*/
@@ -761,7 +763,10 @@ select + .select2-container--bootstrap-5 {
     opacity: 1 !important;
     color: black !important;
 }
-
+/*Multiselect color del select a negro*/
+.select2-container--bootstrap-5 .select2-dropdown .select2-results__options .select2-results__option[aria-selected=true]:not(.select2-results__option--highlighted) {
+    background-color: #000000 !important;
+}
 /*Quitar el box shadow azul del input (buscador) del single select*/
 .select2-container--bootstrap-5 .select2-dropdown .select2-search .select2-search__field:focus {
     /*border-color: #86b7fe;*/
@@ -772,3 +777,16 @@ select + .select2-container--bootstrap-5 {
 /*.form-outline textarea.form-control ~ .form-label, .form-outline textarea.form-control ~ .form-label {
     font-size: 0.9rem !important;
 }*/
+
+
+/*Input daytime-local  hide 'dd/mm/aaa --:-- ----'*/
+.input-date {
+    opacity: 0 !important;
+}
+.input-date.active {  /*Opacidad 1 cuando hay ya se selecciono una fecha*/
+    opacity: 1 !important;
+}
+
+    .input-date:active, .input-date:focus {
+        opacity: 1 !important;
+    }
