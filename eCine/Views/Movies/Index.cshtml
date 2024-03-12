@@ -7,7 +7,7 @@
     @* <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />  *@
 </head>
 
-<div class="container-xxl ">
+<div class="">
     @await Html.PartialAsync("_CreateFile", "Movies")
     <ul class="unorder-list gap-4">
         @foreach (var item in Model)
@@ -35,9 +35,9 @@
                                     <i class="btn-buy__icon btn-buy__icon--cart fa-solid fa-cart-shopping"></i>
                                     <i class="btn-buy__icon btn-buy__icon--box fa-solid fa-ticket-simple"></i>
                                 </button>
-                                <button class="btn btn-warning up">
+                                <a class="btn btn-warning up" asp-action="Edit" asp-route-id="@item.Id">
                                     <i class="btn__icon fa-regular fa-pen-to-square"></i>
-                                </button>
+                                </a>
 
                             </div>
 

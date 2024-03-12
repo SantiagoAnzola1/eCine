@@ -1,9 +1,10 @@
 ﻿.unorder-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 15%));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 15%));
     justify-content: center;
     padding: initial;
-    width: 100%
+    width: 100%;
+    gap:1rem;
 }
 
     .unorder-list li {
@@ -92,7 +93,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    gap: 4px;
+    gap: 0.5rem;
 }
 
 .movie-title {

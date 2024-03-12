@@ -8,5 +8,7 @@ namespace eCine.Data.Services
     {
         Task<NewMovieModel> GetMovieByIdAsync(int id);
         Task<NewMovieDropdownsVM> GetNewMovieDropdownsValues();
+        Task AddNewMovieAsync(NewMovieM data);
+        Task UpdateMovieAsync(NewMovieM data);
     }
 }

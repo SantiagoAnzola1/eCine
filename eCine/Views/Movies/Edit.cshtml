@@ -1,7 +1,7 @@
 ﻿@model NewMovieM
 @using eCine.Data.Enums;
 @{
-    ViewData["Title"] = "Create a new movie";
+    ViewData["Title"] = "Update movie";
 }
 <head>
     <link rel="stylesheet" href="~/css/select/select2.min.css" asp-append-version="true" />
@@ -9,10 +9,10 @@
 
 </head>
 <div class="d-flex flex-column justify-content-center align-items-center p-2">
-    <h1 class="mb-3 text-dark">Create Movie</h1>
+    <h1 class="mb-3 text-dark">Update Movie</h1>
 
     @* style="width: 22rem;" *@
-    <form asp-action="Create"  class="row">
+    <form asp-action="Edit"  class="row">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
 
@@ -145,7 +145,7 @@
             <a asp-action="Index" class="icon-item nav-icon nav-response" data-mdb-toggle="tooltip" data-mdb-placement="bottom" title="Volver" data-mdb-ripple-init data-mdb-ripple-color="dark"><svg xmlns="http://www.w3.org/2000/svg" class=" icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke=#000 fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l14 0" /><path d="M5 12l6 6" /><path d="M5 12l6 -6" /></svg></a>
 
 
-            <button type="submit" value="Create" class="btn btn-dark">Create</button>
+            <button type="submit" value="Update" class="btn btn-dark">Update</button>
 
         </div>
     </form>
@@ -156,7 +156,13 @@
 @section Scripts{
     <script type = "text/javascript" src = "~/js/select/select2.full.min.js" ></script>
     <script>
-
+        // $(document).ready(function () {
+        //     if ($(this).val() != "" && (!$(this).val().includes(photosvg))) {
+        //         output.src = $(this).val();
+        //     } else {
+        //         output.src = photosvg
+        //     }
+        // });
         document.addEventListener('DOMContentLoaded', (event) => {
                 formWidth = document.getElementById('container-form-base-width').offsetWidth + 'px';
                 multiselectContainer.style.width = formWidth;            
