@@ -1,4 +1,5 @@
-﻿using eCine.Data.Cart;
+﻿using Azure;
+using eCine.Data.Cart;
 using eCine.Data.Services;
 using eCine.Data.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -16,14 +17,16 @@ namespace eCine.Controllers
         }
         public IActionResult Index()
         {
-            var items=_shoppingCart.GetShoppingCartItems();
-            _shoppingCart.ShoppingCartItems=items;
+            var items = _shoppingCart.GetShoppingCartItems();
+            _shoppingCart.ShoppingCartItems = items;
             var response = new ShoppingCartVM()
             {
-                ShoppingCart=_shoppingCart,
-                ShoppingCartTotal=_shoppingCart.GetShoppingCartTotal()
+                ShoppingCart = _shoppingCart,
+                ShoppingCartTotal = _shoppingCart.GetShoppingCartTotal()
             };
             return View(response);
         }
+
+        
     }
 }

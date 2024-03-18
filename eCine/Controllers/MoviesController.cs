@@ -119,10 +119,12 @@ namespace eCine.Controllers
             ViewBag.Actors = new SelectList(movieDropdownsData.Actors, "Id", "FullName");
             return View(movie);
         }
-        public IActionResult Forms()
+        public IActionResult Shop()
         {
             ViewData["Welcome"] = "Welcome";
             return View();
         }
+
+
     }
 }
