@@ -33,6 +33,7 @@ namespace eCine.Data
         //Orders
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<ShoppingCartItems> ShoppingCartItems { get; set; }
 
 
     }
