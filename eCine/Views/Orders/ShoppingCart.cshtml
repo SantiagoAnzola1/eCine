@@ -55,10 +55,10 @@
                                                 <div class="d-flex flex-wrap flex-row align-items-center justify-content-center gap-3">
 
                                                     <div class=" d-flex">
-                                                        <button class="btn btn-link px-md-2 px-1 mx-md-1 mx-0"
+                                                        <a class="btn btn-link px-md-2 px-1 mx-md-1 mx-0"
                                                                 asp-controller="Orders" asp-action="RemoveItemFromCart" asp-route-id="@item.Movie.Id" >
                                                             <i class="fas fa-minus text-dark"></i>
-                                                        </button>
+                                                        </a>
                                                         @* <button class="btn btn-link px-md-2 px-1 mx-md-1 mx-0"
                                                                 asp-controller="Orders" asp-action="RemoveItemFromCart" asp-route-id="@item.Movie.Id"
                                                             
@@ -69,10 +69,10 @@
                                                         <input style="width: 42px;" id="form1" min="0" name="quantity" value="@item.Amount" type="number"
                                                                class="form-control input-amount-shopping-cart form-control-sm text-center" />
 
-                                                        <button class="btn btn-link px-md-2 px-1 mx-md-1 mx-0"
+                                                        <a class="btn btn-link px-md-2 px-1 mx-md-1 mx-0"
                                                                 asp-controller="Orders" asp-action="AddItemToCart" asp-route-id="@item.Movie.Id">
                                                             <i class="fas fa-plus text-dark"></i>
-                                                        </button>
+                                                        </a>
                                                         @* <button class="btn btn-link px-md-2 px-1 mx-md-1 mx-0"
                                                                 asp-controller="Orders" asp-action="AddItemToCart" asp-route-id="@item.Movie.Id"
                                                                 onclick="this.parentNode.querySelector('input[type=number]').stepUp() ">

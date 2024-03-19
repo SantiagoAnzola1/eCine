@@ -27,7 +27,7 @@ namespace eCine.Data.Cart
         {
             var shoppingCartItem=_context.ShoppingCartItems.FirstOrDefault(n=>n.Movie.Id == movie.Id && n.ShoppingCartId==ShoppingCartId );
 
-            if(shoppingCartItem != null)
+            if(shoppingCartItem == null)
             {
                 shoppingCartItem = new ShoppingCartItems()
                 {

@@ -31,10 +31,12 @@
                                 <p class="description text-dark">@item.Decription</p>
                             </a>
                             <div class="area-buttons btn-containers d-flex flex-column gap-2 align-items-center justify-content-center">
-                                <button id="btn-buy" class="btn btn-buy up">
-                                    <i class="btn-buy__icon btn-buy__icon--cart fa-solid fa-cart-shopping"></i>
-                                    <i class="btn-buy__icon btn-buy__icon--box fa-solid fa-ticket-simple"></i>
-                                </button>
+                                <form asp-controller="Orders" asp-action="AddToShoppingCart" asp-route-id="@item.Id" method="post">
+                                    <button id="btn-buy" type="submit" class="btn btn-buy up">
+                                        <i class="btn-buy__icon btn-buy__icon--cart fa-solid fa-cart-shopping"></i>
+                                        <i class="btn-buy__icon btn-buy__icon--box fa-solid fa-ticket-simple"></i>
+                                    </button>
+                                </form>
                                 <a class="btn btn-warning up" asp-action="Edit" asp-route-id="@item.Id">
                                     <i class="btn__icon fa-regular fa-pen-to-square"></i>
                                 </a>

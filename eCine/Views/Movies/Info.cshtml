@@ -88,13 +88,14 @@
         <div class="info-section1 price-container mt-4 mb-2 gap-2 d-flex justify-content-center align-items-center">
             <label class="price"> </label> <span class="price text-dark">$@Model.Price</span>
         </div>
-        <button id="btn" class="btn1 up mt-1 mb-4 w-75 mx-auto"> Buy Now
+        <a id="btn" class="btn1 up mt-1 mb-4 w-75 mx-auto" asp-controller="Orders" asp-action="AddToShoppingCart" asp-route-id="@Model.Id">
+            Buy Now
             <div class="btn-icons-container">
                 <i class="btn1__icon btn1__icon--cart fa-solid fa-cart-shopping"></i>
                 <i class="btn1__icon btn1__icon--box fa-solid fa-ticket-simple"></i>
             </div>
             
-        </button>
+        </a>
 
         <div class=" mt-5 ">
             <div class="info-section1 gap-2">
