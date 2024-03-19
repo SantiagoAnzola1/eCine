@@ -577,6 +577,7 @@ input[type="color"]:focus,
     border-color: rgba(0, 0, 0, 1) !important;
    /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6);*/
     outline: 0 none;
+    box-shadow:none;
 }
 input[type="text"]:active,
 input[type="password"]:active,
@@ -807,18 +808,27 @@ input[type="number"] {
 
 
 /*Padding input amount shoping cart*/
+.form-control.input-amount-shopping-cart {
+    height: 31.5px !important;
+}
 @media (max-width: 440px) {
     .form-control.input-amount-shopping-cart {
         padding: 0 !important;
         width:30px !important;
+        height:30px !important;
     }
     .precio-item-shopping-cart {
-        font-size: .9rem
-    }
-    .nombre-producto-shopping-cart {
         font-size: 1rem
     }
+    .nombre-producto-shopping-cart {
+        font-size: .95rem
+    }
 }
-.icono-eliminar:hover {
+a.icono-eliminar{
+
+}
+.icono-eliminar {
+    font-size:.8rem;
+}.icono-eliminar:hover {
     color: #DC4C64;
 }

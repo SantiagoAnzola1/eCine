@@ -52,6 +52,18 @@ namespace eCine.Data.Cart
             }
             _context.SaveChanges();
         }
+        public void RemoveCompletlyItemFromCart(NewMovieModel movie)
+        {
+            var shoppingCartItem = _context.ShoppingCartItems.FirstOrDefault(n => n.Movie.Id == movie.Id && n.ShoppingCartId == ShoppingCartId);
+
+            if (shoppingCartItem != null)
+            {
+               
+                _context.ShoppingCartItems.Remove(shoppingCartItem);
+   
+            }
+            _context.SaveChanges();
+        }
 
         public List<ShoppingCartItems> GetShoppingCartItems() { 
             return ShoppingCartItems ?? (ShoppingCartItems=_context.ShoppingCartItems.Where(n=>n.ShoppingCartId==ShoppingCartId).Include(n=>n.Movie).ToList());
