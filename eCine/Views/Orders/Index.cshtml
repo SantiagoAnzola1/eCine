@@ -82,7 +82,7 @@
 
                                                 </div>
                                                 <div class="d-flex flex-wrap flex-row align-items-center justify-content-center gap-1 gap-md-3">
-                                                    <h5 class="precio-item-shopping-cart mb-0">$ @((item.Amount*item.Movie.Price).ToString("c"))</h5>
+                                                    <h5 class="precio-item-shopping-cart mb-0"> @((item.Amount*item.Movie.Price).ToString("c"))</h5>
                                                     <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt icono-eliminar"></i></a>
                                                 </div>
 
@@ -123,12 +123,12 @@
 
                                         <div class="d-flex justify-content-between mb-4">
                                             <p class="mb-2">Total(Incl. taxes)</p>
-                                            <p class="mb-2">$@Model.ShoppingCartTotal.ToString("c")</p>
+                                            <p class="mb-2">@Model.ShoppingCartTotal.ToString("c")</p>
                                         </div>
 
                                         <button type="button" class="btn btn-primary btn-block btn-lg">
                                             <div class="d-flex justify-content-between">
-                                                <span>$@Model.ShoppingCartTotal.ToString("c")</span>
+                                                <span>@Model.ShoppingCartTotal.ToString("c")</span>
                                                 <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
                                             </div>
                                         </button>
