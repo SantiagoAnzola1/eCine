@@ -824,11 +824,28 @@ input[type="number"] {
         font-size: .95rem
     }
 }
-a.icono-eliminar{
+@media (max-width: 440px) {
+    .form-control.input-amount-shopping-cart {
+        height: 20px !important;
+    }
+}
+@media (max-width: 380px) {
+    .remove-item-shopping-cart-down {
+        display:block !important;
+    }
+    .remove-item-shopping-cart-right {
+        display:none;
+    }
+}
 
+
+a.icono-eliminar {
 }
-.icono-eliminar {
-    font-size:.8rem;
-}.icono-eliminar:hover {
-    color: #DC4C64;
-}
+
+    .icono-eliminar {
+        font-size: .8rem;
+    }
+
+        .icono-eliminar:hover {
+            color: #DC4C64;
+        }
