@@ -132,12 +132,12 @@
                                             <p class="mb-2">@Model.ShoppingCartTotal.ToString("c")</p>
                                         </div>
 
-                                        <button asp-controller="Orders" asp-action="CompleteOrder" type="button" class="btn btn-primary btn-block btn-lg">
+                                        <a asp-action="CompleteOrder" type="button" class="btn btn-primary btn-block btn-lg">
                                             <div class="d-flex justify-content-between">
                                                 <span>@Model.ShoppingCartTotal.ToString("c")</span>
                                                 <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
                                             </div>
-                                        </button>
+                                        </a>
 
                                     </div>
                                 </div>
