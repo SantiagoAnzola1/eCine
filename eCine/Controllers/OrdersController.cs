@@ -36,6 +36,24 @@ namespace eCine.Controllers
             }
             return RedirectToAction(nameof(ShoppingCart));
         }
+        public async Task<RedirectToActionResult> SubtractFromShoppingCart(int id)
+        {
+            var item=await _moviesService.GetMovieByIdAsync(id);
+
+            if(item != null) { 
+                _shoppingCart.RemoveItemFromCart(item);
+            }
+            return RedirectToAction(nameof(ShoppingCart));
+        }
+        public async Task<RedirectToActionResult> RemoveItemFromShoppingCart(int id)
+        {
+            var item=await _moviesService.GetMovieByIdAsync(id);
+
+            if(item != null) { 
+                _shoppingCart.RemoveCompletlyItemFromCart(item);
+            }
+            return RedirectToAction(nameof(ShoppingCart));
+        }
 
         
     }

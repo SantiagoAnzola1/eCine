@@ -51,7 +51,7 @@ namespace eCine.Data.Cart
 
             if (shoppingCartItem != null)
             {
-                if(shoppingCartItem.Amount > 0) { shoppingCartItem.Amount--; } 
+                if(shoppingCartItem.Amount > 1) { shoppingCartItem.Amount--; } 
                 else
                 {
                     _context.ShoppingCartItems.Remove(shoppingCartItem);
