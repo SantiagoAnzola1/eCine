@@ -8,7 +8,7 @@ namespace eCine.Models
         public int Id { get; set; }
 
         public string Email { get; set; }
-        public string userId { get; set; }
+        public string UserId { get; set; }
 
         public List<OrderItem> OrderItems { get; set; }
 
