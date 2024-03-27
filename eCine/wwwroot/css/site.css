@@ -849,3 +849,15 @@ a.icono-eliminar {
         .icono-eliminar:hover {
             color: #DC4C64;
         }
+
+/*Shopping cart Badge*/
+.shopping-cart-badge {
+    border: 2px solid white;
+    top: 2px;
+    right: 5px;
+    border-radius: 100%;
+    padding: 0.05rem 0.2rem;
+}
+.nav-response:hover .shopping-cart-badge {
+    border-color: #D8D8D8;
+}
