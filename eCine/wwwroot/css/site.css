@@ -457,7 +457,7 @@ li:hover > .logout {
 .blur {
     top: 0;
     height: 100%;
-    width: 100vw;
+    width: 100%;
     position: absolute;
     z-index: 1;
     background-color: hsla(0,0%,7%,.16);

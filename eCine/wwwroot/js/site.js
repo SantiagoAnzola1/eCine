@@ -118,13 +118,12 @@ function toggleSearchInput() {
     isSearchButton = !isSearchButton
     const isFocus = searchField.classList.contains('focus')
     searchField.classList.toggle('focus')
-    
+    //searchField.focus({ preventScroll: true })
     if (isFocus) {
-        setTimeout(() => { searchField.setAttribute('placeholder', '') }, 150)
-        searchField.blur()
+        /*setTimeout(() => { searchField.setAttribute('placeholder', '') }, 150)*/
+        //searchField.blur()
     } else {
         searchField.setAttribute('placeholder', 'Buscar')
-        searchField.focus()
     }
     SearchContainer.classList.toggle('focus')
     searchSubmit.classList.toggle('focus')
@@ -143,19 +142,26 @@ function toggleSearchInput() {
     navItem.forEach((nav) => { nav.classList.toggle('search'); });
 
     containerNav.forEach((co) => { co.classList.toggle('focus'); });
-    
+    //searchField.focus({ preventScroll: true })
+
 }
+    searchField.focus({ preventScroll: true })
+
 searchButton.addEventListener('click', () => {
+    //searchField.focus({ preventScroll: true })
+    /*window.requestAnimationFrame(() => searchField.focus())*/
+    focusInput()
     if (!isSearchButton) {
         SearchContainer.addEventListener('submit', function (event) {
-            if (!isSearchButton) {
-                event.preventDefault(); // Prevent the form from submitting
+            if (!isSearchButton) {               
+                event.preventDefault() // Prevent the form from submitting
                 toggleSearchInput()
             }
         });
             
         
     } 
+    /*focusInput()*/
 });
 cleanInput.addEventListener('click', () => {
 
@@ -165,8 +171,13 @@ cleanInput.addEventListener('click', () => {
 });
 onblur.addEventListener('click', () => {
     toggleSearchInput()
+
 });
 
+function focusInput() {
+    setTimeout(() => { searchField.focus({ preventScroll: true }) }, 150) 
+    console.log("focus")
+}
 
 function cambiarSVG(nombreSVG) {
     // Obtén el contenedor SVG
