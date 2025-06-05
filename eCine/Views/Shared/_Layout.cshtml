@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>eCine - @ViewData["Title"]</title>
+    <link rel="shortcut icon" href="~/images/eCineIcon2.webp" type="image/x-icon" asp-append-version="true">
     @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
      <link rel="stylesheet" href="~/mdb5-free-standard/css/mdb.min.css" />
 
@@ -77,26 +78,7 @@
                
                     <div id="container-nav" class="container-nav">
                         <ul id="navbar-nav" class="navbar-nav flex-grow-1 d-flex align-items-center gap-1 ">
-                        @* <li class="nav-item nav-item-link d-sm-flex d-sm-block d-none dropdown-list">
-
-                            <div id="dropdown-container" class="dropdown w-100 nav-link">
-                                <button class="nav-item nav-item-link nav-link text-dark dropdown-toggle border-0 bg-white"
-                                        type="button"
-                                        id="dropdownMenuButton"
-                                        data-mdb-toggle="dropdown"
-                                        aria-expanded="false">
-                                    Dropdown button
-                                </button>
-                                <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
-                                    <li><a class="dropdown-item nav-item nav-item-link text-dark" href="#">Action</a></li>
-                                    <li><a class="dropdown-item nav-item nav-item-link text-dark" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item  nav-item nav-item-link text-dark" href="#">Something else here</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                                <li class="nav-item nav-item-link d-sm-block d-none">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Movies" asp-action="Index"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-movie" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /><path d="M8 4l0 16" /><path d="M16 4l0 16" /><path d="M4 8l4 0" /><path d="M4 16l4 0" /><path d="M4 12l16 0" /><path d="M16 8l4 0" /><path d="M16 16l4 0" /></svg> Movies</a><i class="bi bi-chevron-right d-sm-none d-block"></i>
-                        </li>*@
+                        
                                 <li id="back-btn" class="back-btn d-sm-none d-block">
                                     <button  class="nav-icon  nav-response" onclick="toggleSearchInput()">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
@@ -188,7 +170,7 @@
             <!-- Section: Social media -->
             <section class="mb-4">
                 <!-- Facebook -->
-                <a data-mdb-ripple-init
+                @* <a data-mdb-ripple-init
                    class="btn text-white btn-floating m-1"
                    style="background-color: #3b5998;"
                    href="#!"
@@ -203,31 +185,32 @@
                    href="#!"
                    role="button">
                     <i class="fab fa-twitter"></i>
-                </a>
+                </a> *@
 
                 <!-- Google -->
                 <a data-mdb-ripple-init
                    class="btn text-white btn-floating m-1"
                    style="background-color: #dd4b39;"
-                   href="#!"
+                   href="mailto:santiag.anzola1@gmail.com"
                    role="button">
                     <i class="fab fa-google"></i>
                 </a>
 
-                <!-- Instagram -->
+               @*  <!-- Instagram -->
                 <a data-mdb-ripple-init
                    class="btn text-white btn-floating m-1"
                    style="background-color: #ac2bac;"
                    href="#!"
                    role="button">
                     <i class="fab fa-instagram"></i>
-                </a>
+                </a> *@
 
                 <!-- Linkedin -->
                 <a data-mdb-ripple-init
                    class="btn text-white btn-floating m-1"
                    style="background-color: #0082ca;"
-                   href="#!"
+                   target="_blank"
+                   href="https://www.linkedin.com/in/santiago-anzola-alvarez-"
                    role="button">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
@@ -235,7 +218,8 @@
                 <a data-mdb-ripple-init
                    class="btn text-white btn-floating m-1"
                    style="background-color: #000;"
-                   href="#!"
+                   target="_blank"
+                   href="https://github.com/SantiagoAnzola1"
                    role="button">
                     <i class="fab fa-github"></i>
                 </a>
@@ -246,7 +230,7 @@
         <!-- Copyright -->
         <div class="text-center text-light-50 p-3" style="background-color: rgba(0,0,0,1);">
             © 2024 Copyright
-            <a class="text-body text-light" href="#">Santiago Anzola Alvarez</a>
+            <a href="mailto:santiag.anzola1@gmail.com" class="text-body text-light">Santiago Anzola Alvarez</a>
         </div>
         <!-- Copyright -->
     </footer>
