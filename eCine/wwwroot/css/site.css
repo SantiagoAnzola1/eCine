@@ -32,14 +32,20 @@ body {
     margin-bottom: 60px;
     position: relative;
 }
-
+header {
+    position: sticky;
+    top: 0px;
+    z-index: 100;
+}
 .header {
-   box-sizing: border-box;
-   position:relative;
+    box-sizing: border-box;
+    position:relative;
+   
 }
 #navbar {
     /*overflow-x: hidden !important;*/ /* Oculta el desbordamiento horizontal */
     /*overflow-y: clip ;*/
+    background:white;
 }
 .navbar {
     /*position: relative !important;*/
