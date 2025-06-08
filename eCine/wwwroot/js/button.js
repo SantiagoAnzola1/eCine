@@ -23,3 +23,5 @@ SinopsisToggle.addEventListener('click', () => {
 
 });
 
+
+
