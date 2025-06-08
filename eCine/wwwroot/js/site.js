@@ -70,7 +70,7 @@ const sinopsistoggleInfo = document.querySelector('#toggle-sinopsis-info')
 let formWidth
 const multiselectContainer = document.getElementById('multiselect-container');
 document.addEventListener('DOMContentLoaded', (event) => {
-    if (multiselectContainer!=null) {
+    if (multiselectContainer != null) {
         formWidth = document.getElementById('container-form-base-width').offsetWidth + 'px';
         multiselectContainer.style.width = formWidth;
     }
@@ -80,7 +80,7 @@ function onResize() {
     if (multiselectContainer != null) {
         formWidth = document.getElementById('container-form-base-width').offsetWidth + 'px'
         multiselectContainer.style.width = formWidth;
-       
+
     }
     //console.log(multiselectContainer.offsetWidth)
     if (window.screen.width <= 410) {
@@ -136,7 +136,7 @@ function toggleSearchInput() {
     cancelBtn.classList.toggle('focus')
     backBtn.classList.toggle('focus')
     navBrand.classList.toggle('focus')
-    
+
     //containerNav.classList.toggle('focus')
 
     navItem.forEach((nav) => { nav.classList.toggle('search'); });
@@ -145,7 +145,7 @@ function toggleSearchInput() {
     //searchField.focus({ preventScroll: true })
 
 }
-    searchField.focus({ preventScroll: true })
+searchField.focus({ preventScroll: true })
 
 searchButton.addEventListener('click', () => {
     //searchField.focus({ preventScroll: true })
@@ -153,14 +153,14 @@ searchButton.addEventListener('click', () => {
     focusInput()
     if (!isSearchButton) {
         SearchContainer.addEventListener('submit', function (event) {
-            if (!isSearchButton) {               
+            if (!isSearchButton) {
                 event.preventDefault() // Prevent the form from submitting
                 toggleSearchInput()
             }
         });
-            
-        
-    } 
+
+
+    }
     /*focusInput()*/
 });
 cleanInput.addEventListener('click', () => {
@@ -175,7 +175,7 @@ onblur.addEventListener('click', () => {
 });
 
 function focusInput() {
-    setTimeout(() => { searchField.focus({ preventScroll: true }) }, 150) 
+    setTimeout(() => { searchField.focus({ preventScroll: true }) }, 150)
     console.log("focus")
 }
 
@@ -193,7 +193,7 @@ function cambiarSVG(nombreSVG) {
         // Restaura la opacidad a 1 para mostrar el nuevo SVG con animación
         contenedorSVG.style.opacity = 1;
         contenedorSVG.style.transform = 'rotate(30deg)';
-    }, 200); 
+    }, 200);
 }
 
 function obtenerContenidoSVG(nombreSVG) {
@@ -237,7 +237,7 @@ function removeMenuHamburguesa() {
     navIconItem.forEach((nav) => { nav.classList.remove('d-none') })
     body.classList.remove('overflow-hidden')
     dropdawn.classList.remove('nav-link')
-    svg =true;
+    svg = true;
     cambiarSVG(svg)
 }
 
@@ -246,3 +246,6 @@ contenedorSVG.addEventListener('click', () => {
 });
 // Cargar un SVG por defecto al cargar la página
 cambiarSVG(svg);
+
+
+    //

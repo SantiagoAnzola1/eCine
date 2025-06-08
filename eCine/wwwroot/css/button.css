@@ -4,7 +4,7 @@
     justify-content: center;
     padding: initial;
     width: 100%;
-    gap:1rem;
+    gap: 1rem;
 }
 
     .unorder-list li {
@@ -170,7 +170,7 @@
     &:hover
 
 {
-    transform:scale(.9);
+    transform: scale(.9);
 }
 
 }
@@ -182,13 +182,13 @@
 .price {
     font-size: 1rem !important;
     font-weight: bolder !important;
-
     /*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);*/
 }
 /*Quitar spacio a>span*/
-.no-space{
-    font-size:0;
+.no-space {
+    font-size: 0;
 }
+
 @media screen and (max-width: 541px) {
     .unorder-list {
         grid-template-columns: repeat(auto-fit, minmax(250px, 100%));
@@ -285,7 +285,7 @@
     -webkit-transition: 0.08s ease-in;
 }
 
-/*    .btn1:active {
+    /*    .btn1:active {
         transform: scale(.9);
     }*/
     .btn1:hover {
@@ -318,6 +318,7 @@
     width: 42px;
     height: 100%;
 }
+
 .btn1__text--second {
     opacity: 0;
 }
@@ -446,5 +447,7 @@
 }
 
 
-/*Poster*//**/
+/*Poster*/ /**/
+
+
 

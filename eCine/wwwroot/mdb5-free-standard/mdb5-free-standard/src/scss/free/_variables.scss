@@ -703,6 +703,29 @@ $enable-negative-margins: true !default;
 $variable-prefix: mdb- !default;
 $prefix: $variable-prefix !default;
 
+// Global MDB light theme variables
+
+// scss-docs-start mdb-global-light-theme-variables
+$surface-color: $gray-800 !default;
+$surface-bg: $white !default;
+$surface-inverted-color: $white !default;
+$surface-inverted-bg: #6d6d6d !default;
+$divider-color: $gray-100 !default;
+$divider-blurry-color: hsl(0, 0%, 40%) !default;
+$highlight-bg-color: $gray-200 !default;
+$scrollbar-rail-bg: $gray-200 !default;
+$scrollbar-thumb-bg: $gray-500 !default;
+$picker-header-bg: $primary !default;
+$timepicker-clock-face-bg: var(--#{$prefix}secondary-bg) !default;
+$sidenav-backdrop-opacity: 0.1 !default;
+$form-control-border-color: $gray-400 !default;
+$form-control-label-color: $gray-600 !default;
+$form-control-disabled-bg: $gray-300 !default;
+$box-shadow-color: $black !default;
+$stepper-mobile-bg: $gray-50 !default;
+$datepicker-cell-in-range-background-color: $primary-border-subtle !default;
+// scss-docs-start mdb-global-light-theme-variables
+
 // Body
 //
 // Settings for the `<body>` element.
@@ -1052,9 +1075,9 @@ $form-label-transition: all 0.2s ease-out !default;
 $form-label-color: var(--#{$prefix}form-control-label-color) !default;
 
 $input-focus-active-label-transform: translateY(-1rem) translateY(0.1rem) scale(0.8) !default;
-$input-focus-label-color: $primary !default;
+$input-focus-label-color: var(--#{$prefix}input-focus-label-color) !default;
 $input-focus-border-width: 0.125rem !default;
-$input-focus-border-color: $primary !default;
+$input-focus-border-color: var(--#{$prefix}input-focus-border-color) !default;
 $input-disabled-background-color: var(--#{$prefix}form-control-disabled-bg) !default;
 
 $input-font-size-lg: 1rem !default;
@@ -1101,7 +1124,7 @@ $form-check-input-before-transform: scale(0) !default;
 
 $form-check-input-hover-before-opacity: 0.04 !default;
 $form-check-input-hover-before-box-shadow: 0px 0px 0px 13px
-  rgba(var(--#{$prefix}box-shadow-color-rgb, 0.6)) !default;
+  rgba(var(--#{$prefix}box-shadow-color-rgb), 0.6) !default;
 
 $form-check-input-focus-border-color: $form-check-input-border-color !default;
 $form-check-input-focus-transition: border-color 0.2s !default;
@@ -1451,7 +1474,7 @@ $accordion-flush-item-border-bottom: 2px solid var(--#{$prefix}divider-color) !d
 $accordion-borderless-button-border-radius: 0.5rem !default;
 $accordion-borderless-button-bgc: var(--#{$prefix}primary-bg-subtle) !default;
 $accordion-borderless-button-color: var(--#{$prefix}primary-text-emphasis) !default;
-$accordion-icon-color: var(--#{$prefix}surface-color) !default;
+$accordion-icon-color: $surface-color !default;
 $accordion-icon-active-color: $primary !default;
 // scss-docs-end accordion-variables
 
@@ -1539,6 +1562,8 @@ $alert-border-radius: $border-radius-lg !default;
 // scss-docs-start progress-variables
 $progress-height: 4px !default;
 $progress-bar-color: color-contrast($primary) !default;
+$progress-circular-size: 48px !default;
+$progress-circular-bar-width: 4px !default;
 // scss-docs-end progress-variables
 
 // Range
@@ -1578,6 +1603,7 @@ $list-group-light-active-border-radius: 0.5rem !default;
 $list-group-light-active-bg: var(--#{$prefix}primary-bg-subtle) !default;
 $list-group-light-active-color: var(--#{$prefix}primary-text-emphasis) !default;
 
+$list-group-active-margin-top: 0 !default;
 $list-group-small-item-py: 0.5rem !default;
 // scss-docs-end list-group-variables
 
@@ -1611,9 +1637,6 @@ $breadcrumb-item-before-color: $breadcrumb-divider-color !default;
 $carousel-control-prev-icon-bg: none !default;
 $carousel-control-next-icon-bg: none !default;
 $carousel-control-icon-font-size: 1.7rem !default;
-$carousel-dark-indicator-active-bg: $white !default;
-$carousel-dark-caption-color: $white !default;
-$carousel-dark-control-icon-filter: none !default;
 // scss-docs-end carousel-variables
 
 // Scrollspy
@@ -1660,25 +1683,3 @@ $divider-blurry-vr-bg-image: linear-gradient(
 ) !default;
 $divider-blurry-vr-width: 1px !default;
 // scss-docs-end divider-variables
-
-// Global MDB light theme variables
-
-// scss-docs-start mdb-global-light-theme-variables
-$surface-color: $gray-800 !default;
-$surface-bg: $white !default;
-$surface-inverted-color: $white !default;
-$surface-inverted-bg: #6d6d6d !default;
-$divider-color: $gray-100 !default;
-$divider-blurry-color: hsl(0, 0%, 40%) !default;
-$highlight-bg-color: $gray-200 !default;
-$scrollbar-rail-bg: $gray-200 !default;
-$scrollbar-thumb-bg: $gray-500 !default;
-$picker-header-bg: $primary !default;
-$timepicker-clock-face-bg: var(--#{$prefix}secondary-bg) !default;
-$sidenav-backdrop-opacity: 0.1 !default;
-$form-control-border-color: $gray-400 !default;
-$form-control-label-color: $gray-600 !default;
-$form-control-disabled-bg: $gray-300 !default;
-$box-shadow-color: $black !default;
-$stepper-mobile-bg: $gray-50 !default;
-// scss-docs-start mdb-global-light-theme-variables
