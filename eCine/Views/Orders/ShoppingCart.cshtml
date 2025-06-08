@@ -131,12 +131,14 @@
                                             <p class="mb-2">@Model.ShoppingCartTotal.ToString("c")</p>
                                         </div>
 
-                                        <a asp-action="CompleteOrder" type="button" class="btn btn-primary btn-block btn-lg">
-                                            <div class="d-flex justify-content-between">
+                                        @* <a asp-action="CompleteOrder" type="button" class="btn btn-primary btn-block btn-lg"> *@
+
+                                            <div id="paypal-btn"></div>
+                                         @*    <div class="d-flex justify-content-between">
                                                 <span>@Model.ShoppingCartTotal.ToString("c")</span>
                                                 <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
                                             </div>
-                                        </a>
+                                        </a> *@
 
                                     </div>
                                 </div>
@@ -234,3 +236,46 @@
     </div>
 
 </section>
+
+
+
+@section Scripts{
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <script>
+
+        let total = @Html.Raw(Json.Serialize(Model.ShoppingCartTotal));
+
+        paypal.Button.render({
+            env: 'sandbox',
+            client: {
+                sandbox: 'ATbL2vlsi6_58YwYQnfp6FRwQCNOl9tlLY_JGKMgjHZLGsLVAg-UmUVg1zYerYJk-wf4TQHqbkVaoPsA',
+            },
+
+            locale: 'en_US',
+            style: {
+                size: 'small',
+                color: 'gold',
+                shape: 'pill'
+            },
+            commit: true,
+            payment: function (data, actions) {
+                return actions.payment.create({
+                    transactions: [{
+                        amount: {
+                            total: total,
+                            currency: 'USD'
+                        }
+                    }]
+                });
+            },
+            onAuthorize: function (data, actions) {
+                return actions.payment.execute().then(function () {
+                    const url = '@Url.Action("CompleteOrder", "Orders", new { })';
+                    window.location.href = url;
+                });
+            }
+
+        }, '#paypal-btn')
+
+    </script>
+}
