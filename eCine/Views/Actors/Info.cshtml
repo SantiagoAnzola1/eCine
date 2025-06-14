@@ -17,7 +17,7 @@
         </div>
         <div class="mb-2">
             <div data-mdb-input-init class="form-outline mt-1">
-                <input asp-for="ProfilePicture" type="text" class="form-control" readonly/>
+                <input asp-for="ProfilePicture" type="text" class="form-control" readonly />
                 <label asp-for="ProfilePicture" class="form-label" for="form5Example1">Profile picture</label>
             </div>
             <span asp-validation-for="ProfilePicture" class="text-danger error-message p-1"></span>
@@ -44,17 +44,18 @@
         <div class="d-flex flex-row justify-content-between align-items-center">
 
 
-            <a asp-action="Index" class="icon-item nav-icon nav-response" data-mdb-toggle="tooltip" data-mdb-placement="bottom" title="Volver" data-mdb-ripple-init data-mdb-ripple-color="dark"><svg xmlns="http://www.w3.org/2000/svg" class=" icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke=#000 fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l14 0" /><path d="M5 12l6 6" /><path d="M5 12l6 -6" /></svg></a>
+            <a asp-action="Index" aria-label="Back button" class="icon-item nav-icon nav-response" data-mdb-toggle="tooltip" data-mdb-placement="bottom" title="Back" data-mdb-ripple-init data-mdb-ripple-color="dark"><svg xmlns="http://www.w3.org/2000/svg" class=" icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke=#000 fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l14 0" /><path d="M5 12l6 6" /><path d="M5 12l6 -6" /></svg></a>
 
-
-            <a class="btn btn-warning" asp-action="Edit"asp-route-id="@Model.Id">Edit</a>
-
+            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+            {
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+            }
         </div>
     </div>
 
 </div>
 
-@section Scripts{
+@section Scripts {
     <script>
         const output = document.getElementById('ProfilePicturePreview')
 
