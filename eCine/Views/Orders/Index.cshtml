@@ -13,7 +13,10 @@
                         <th>Order</th>
                         <th>Items</th>
                         <th>Total</th>
-                        <th>User</th>
+                        @if(User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <th>User</th>
+                        }
                     </tr>
                 </thead>
                 <tbody >
@@ -40,9 +43,14 @@
                             <td >
                            @order.OrderItems.Select(m=> m.Movie.Price*m.Amount).Sum().ToString("c")
                             </td>
-                            <td>
--
-                            </td>
+
+                            @if(User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <td>
+                                <a asp-action="EditUsers" asp-controller="Account" asp-route-id="@order.User.Id" title="edit">@order.User.FullName</a>
+                                    
+                                </td>
+                             }
                         </tr>
                     }
                
