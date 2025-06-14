@@ -1,6 +1,8 @@
 ﻿using eCine.Data;
 using eCine.Data.Services;
+using eCine.Data.Static;
 using eCine.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -42,6 +44,8 @@ namespace eCine.Controllers
             return View(movie);
         }
 
+
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<IActionResult> Create()
         {
             var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
@@ -52,7 +56,9 @@ namespace eCine.Controllers
 
             return View();
         }
+
         [HttpPost]
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<IActionResult> Create(NewMovieM movie)
         {
             if (ModelState.IsValid)
@@ -68,7 +74,7 @@ namespace eCine.Controllers
             return View(movie);
         }
 
-
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<IActionResult> Edit(int id)
         {
             var movieDetails = await _service.GetMovieByIdAsync(id);
@@ -100,7 +106,9 @@ namespace eCine.Controllers
             ViewBag.Actors = new SelectList(movieDropdownsData.Actors, "Id", "FullName");
             return View(response);
         }
+
         [HttpPost]
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<IActionResult> Edit(int id, NewMovieM movie)
         {
             if (id != movie.Id)
