@@ -1,0 +1,54 @@
+﻿@inject UserManager<AplicationUser> UserManager;
+
+@if (User.Identity.IsAuthenticated)
+{
+    <li class="bg-light-blue text-primary p-2 text-center fw-bold ">
+        Hi, @UserManager.GetUserName(User)
+    </li>
+
+
+    <li>
+        <a class="dropdown-item nav-item nav-item-link text-dark"> <svg xmlns="http://www.w3.org/2000/svg" width="24" class="pe-2" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> My Profile</a>
+    </li>
+
+
+    <li>
+        <a asp-action="Index" asp-controller="Orders" class="dropdown-item nav-item nav-item-link text-dark"><svg xmlns="http://www.w3.org/2000/svg" width="24" class="pe-2" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-list"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l11 0" /><path d="M9 12l11 0" /><path d="M9 18l11 0" /><path d="M5 6l0 .01" /><path d="M5 12l0 .01" /><path d="M5 18l0 .01" /></svg>  Orders</a>
+    </li>
+
+    @if (User.IsInRole("Admin"))
+    {
+        <li>
+            <a asp-action="Users" asp-controller="Account" class="dropdown-item nav-item nav-item-link text-dark">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" class="pe-2" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-list"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /><path d="M21 21v-2a4 4 0 0 0 -3 -3.85" /></svg> Users</a>
+        </li>
+    }
+
+    <hr class="">
+
+    <li class="li-logout">
+        <form asp-controller="Account" asp-action="Logout">
+
+            <button type="submit" class="dropdown-item  nav-item nav-item-link text-dark  logout order-danger">
+                <svg xmlns="http://www.w3.org/2000/svg" class="flip-hover" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" /><path d="M9 12h12l-3 -3" /><path d="M18 15l3 -3" /></svg>
+                Log Out
+            </button>
+        </form>
+
+    </li>
+
+}
+else
+{
+
+
+    <li><a asp-controller="Account" asp-action="Login" class="dropdown-item  nav-item nav-item-link text-dark login"><svg xmlns="http://www.w3.org/2000/svg" class="" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" /><path d="M9 12h12l-3 -3" /><path d="M18 15l3 -3" /></svg> Log In</a></li>
+
+    <li><a asp-controller="Account" asp-action="Signup" class="dropdown-item  nav-item nav-item-link text-dark signup order-danger"><svg xmlns="http://www.w3.org/2000/svg" class="" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" /><path d="M9 12h12l-3 -3" /><path d="M18 15l3 -3" /></svg> Sign Up</a></li>
+
+}
+
+
+
+
+
