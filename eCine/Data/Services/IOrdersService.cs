@@ -6,6 +6,6 @@ namespace eCine.Data.Services
     {
         Task StoreOrderAsync(List<ShoppingCartItems> items, string userId, string userEmailAdress);
 
-        Task<List<Order>> GetOrdersByUserIdAsync(string userId);
+        Task<List<Order>> GetOrdersByUserIdAndRoleAsync(string userId, string userRole);
     }
 }
