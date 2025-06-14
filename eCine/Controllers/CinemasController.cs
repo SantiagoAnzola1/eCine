@@ -1,6 +1,8 @@
 ﻿using eCine.Data;
 using eCine.Data.Services;
+using eCine.Data.Static;
 using eCine.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -31,12 +33,14 @@ namespace eCine.Controllers
             return View(producer);
         }
 
+        [Authorize(Roles = UserRoles.Admin)]
         public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<IActionResult> Create([Bind("Logo,Name,Description")] Cinema cinema)
         {
             ModelState.Remove("Movies");
@@ -53,7 +57,7 @@ namespace eCine.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<IActionResult> Edit(int id)
         {
             var cinema = await _service.GetByIdAsync(id);
@@ -65,6 +69,7 @@ namespace eCine.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Logo,Name,Description")] Cinema cinema)
         {
             ModelState.Remove("Movies");
@@ -86,6 +91,7 @@ namespace eCine.Controllers
             return View(cinema);
         }
 
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<IActionResult> Delete(int id)
         {
             var cinema = await _service.GetByIdAsync(id);
@@ -95,7 +101,9 @@ namespace eCine.Controllers
             }
             return View(cinema);
         }
+
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var cinema = await _service.GetByIdAsync(id);
