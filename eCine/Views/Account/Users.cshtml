@@ -1,0 +1,62 @@
+﻿@using eCine.Data.ViewModels
+@model IEnumerable<UserVM>
+
+@{
+        ViewData["Title"] = "Users";
+}
+
+
+<div class="d-flex flex-column align-items-center min-vh-100">
+    <h1 class="text-center mb-4">List of all Users</h1>
+    <div class="col-md-12 offset-md-2 rounded table-responsive">
+
+        <table class="table align-middle mb-0 bg-white p-3 rounded border-bottom  shadow-1 overflow-x-auto">
+
+            <thead class="bg-light shadow-2 px-5">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.FullName)</th>
+                    <th>@Html.DisplayNameFor(model => model.UserName)</th>
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <th>@Html.DisplayNameFor(model => model.Role)</th> 
+                        <th class="text-center">Actions</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="shadow-1 rounded px-2">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+
+                        <td>@Html.DisplayFor(modelItem => item.UserName)</td>
+                        <td class="overflow-hidden ">@Html.DisplayFor(modelItem => item.Email)</td>
+
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <td>@Html.DisplayFor(modelItem => item.Role)</td>
+
+                            <td class="text-center">
+                                <a class="btn  btn-secondary btn-warning btn-floating" data-mdb-toggle="tooltip" data-mdb-placement="top" title="Edit" asp-controller="Account" asp-action="EditUsers" asp-route-id="@item.Id">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg>
+                                </a>
+
+                            </td>
+                        }
+                    </tr>
+                }
+
+            </tbody>
+
+
+        </table>
+
+
+
+    </div>
+</div>
