@@ -219,7 +219,10 @@ function toggleMenuHamburguesa() {
     svg = !svg
     cambiarSVG(svg)
     body.classList.toggle('overflow-hidden')
-    dropdawn.classList.toggle('nav-link')
+
+
+    dropdawn?.classList.toggle('nav-link')
+
     //if (isHamburguer) {
     //    body.classList.()
     //}
@@ -236,7 +239,7 @@ function removeMenuHamburguesa() {
     navItem.forEach((nav) => { nav.classList.remove('menu') })
     navIconItem.forEach((nav) => { nav.classList.remove('d-none') })
     body.classList.remove('overflow-hidden')
-    dropdawn.classList.remove('nav-link')
+    dropdawn?.classList.remove('nav-link')
     svg = true;
     cambiarSVG(svg)
 }
@@ -248,4 +251,4 @@ contenedorSVG.addEventListener('click', () => {
 cambiarSVG(svg);
 
 
-    //
+//
