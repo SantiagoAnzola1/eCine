@@ -8,7 +8,9 @@
 </head>
 
 <div class="">
+
     @await Html.PartialAsync("_CreateFile", "Movies")
+
     <ul class="unorder-list gap-4">
         @foreach (var item in Model)
         {
@@ -37,9 +39,12 @@
                                         <i class="btn-buy__icon btn-buy__icon--box fa-solid fa-ticket-simple"></i>
                                     </button>
                                 </form>
-                                <a class="btn btn-warning up" asp-action="Edit" asp-route-id="@item.Id">
-                                    <i class="btn__icon fa-regular fa-pen-to-square"></i>
-                                </a>
+
+                                @if(User.Identity.IsAuthenticated && User.IsInRole("Admin")){
+                                    <a class="btn btn-warning up" asp-action="Edit" asp-route-id="@item.Id">
+                                        <i class="btn__icon fa-regular fa-pen-to-square"></i>
+                                    </a>
+                                }
 
                             </div>
 
@@ -68,15 +73,15 @@
                                     <label>Status</label>
                                         @if (DateTime.Now >= item.StartDate && DateTime.Now <= item.EndDate)
                                         {
-                                        <span class="badge badge-success">Available</span>
+                                            <span class="badge badge-success">Available</span>
                                         }
                                         else if (DateTime.Now > item.EndDate)
                                         {
-                                        <span class="badge badge-danger">Expired</span>
+                                            <span class="badge badge-danger">Expired</span>
                                         }
                                         else
                                         {
-                                        <span class="badge badge-info">Soon</span>
+                                            <span class="badge badge-info">Soon</span>
                                         }
                                 </div><!--seat-->
                                 <div class="info-section">
