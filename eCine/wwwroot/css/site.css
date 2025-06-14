@@ -193,9 +193,38 @@ header {
 
    font-size:15px!important;
 }
-li:hover > .logout {
+
+.bg-light-blue {
+    background: #dfe7f6;
+}
+
+.li-logout {
+    border-color: transparent;
+    font-size: 15px;
+}
+li:hover > form > .logout {
     color: #DC4C64 !important;
-    border: #DC4C64 !important;
+    border-color: transparent;
+    font-size: 15px;
+}
+li > form > .logout > .flip-hover {
+    transition: transform .2s ease-in;
+}
+li:hover > form > .logout > .flip-hover {
+    transform: scaleX(-1);
+    transition: transform .2s ease-in;
+}
+li:hover > .login {
+    border-color:transparent;
+}
+li:hover > .login {
+    color: #2c71bf !important;
+}
+li:hover > .signup {
+    border-color: transparent;
+}
+li:hover > .signup {
+    color: #139c49 !important;
 }
 .dropdown-item {
     font-weight:400!important;
@@ -217,12 +246,12 @@ li:hover > .logout {
     overflow: hidden;
 }
 
- .dropdown:hover > .dropdown-menu {
+.dropdown:hover > .dropdown-menu {
     opacity: 1;
     /*top: 20px;*/
-    max-height: 200px !important;
+    max-height: 210px !important;
     /*grid-template-rows: 1fr;*/
-    transition: max-height 0.5s ease-out;
+    transition: max-height 0.5s ease-out, transform 0.5s ease-out;
 }
 
 
@@ -703,7 +732,7 @@ textarea.form-label {
     transform: translateY(-50%);*/
     /*padding-bottom: 0.37rem!important;*/
 }
-td a {
+td a.btn {
     display: inline-block !important;
     width: 36.99px !important; /* Ancho deseado del contenedor */
     height: 36.99px !important; /* Alto deseado del contenedor */
@@ -868,4 +897,24 @@ a.icono-eliminar {
 }
 .nav-response:hover .shopping-cart-badge {
     border-color: #D8D8D8;
+}
+
+/*Account Form*/
+
+.account-form{
+    max-width:500px;
+}
+
+button{
+    text-transform:none !important;
+}
+
+
+/*General*/
+
+.flip-horizontal {
+    transform: scaleX(-1);
+}
+.w-fit{
+    width:fit-content;
 }
