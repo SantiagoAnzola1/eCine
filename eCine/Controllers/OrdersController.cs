@@ -2,7 +2,9 @@
 using eCine.Data.Cart;
 using eCine.Data.Services;
 using eCine.Data.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace eCine.Controllers
 {
@@ -18,10 +20,12 @@ namespace eCine.Controllers
             _ordersService = ordersService;
         }
 
+        [Authorize]
         public async Task<IActionResult> Index()
         {
-            string userId = "";
-            var orders = await _ordersService.GetOrdersByUserIdAsync(userId);
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string userRole = User.FindFirstValue(ClaimTypes.Role); // This should be fetched from the user context, e.g., User.FindFirstValue(ClaimTypes.Role);
+            var orders = await _ordersService.GetOrdersByUserIdAndRoleAsync(userId, userRole);
             return View(orders);
         }
         public IActionResult ShoppingCart()
@@ -67,8 +71,8 @@ namespace eCine.Controllers
         public async Task<IActionResult> CompleteOrder()
         {
             var items=_shoppingCart.GetShoppingCartItems();
-            string userId = "";
-            string userEmailAdress = "";
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string userEmailAdress = User.FindFirstValue(ClaimTypes.Email);
 
             await _ordersService.StoreOrderAsync(items, userId, userEmailAdress);
             await _shoppingCart.ClearShoppingCartAsync();
